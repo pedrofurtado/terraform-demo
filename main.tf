@@ -24,7 +24,7 @@ resource "aws_iam_role" "my-role" {
         {
           Action   = ["s3:*"]
           Effect   = "Allow"
-          Resource = "blablabla"
+          Resource = "*"
         },
       ]
     })
@@ -32,6 +32,6 @@ resource "aws_iam_role" "my-role" {
 
   tags = {
     tag-key = "tag-value",
-    foo = "bar"
+    foo = "bar2"
   }
 }

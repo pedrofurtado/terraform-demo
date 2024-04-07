@@ -30,7 +30,7 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: terraform init -backend-config="bucket=$S3_BUCKET_NAME" -backend-config="key=$S3_KEY" -backend-config="region=$AWS_REGION"
+        run: terraform init -backend-config="bucket=$TF_VAR_S3_BUCKET_NAME" -backend-config="key=$TF_VAR_S3_KEY" -backend-config="region=$AWS_REGION"
 
       - name: Terraform lint
         id: fmt

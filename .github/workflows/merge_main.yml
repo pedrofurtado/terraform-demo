@@ -12,8 +12,8 @@ env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
   AWS_REGION: ${{ secrets.AWS_REGION }}
-  S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
-  S3_KEY: ${{ secrets.S3_KEY }}
+  TF_VAR_S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
+  TF_VAR_S3_KEY: ${{ secrets.S3_KEY }}
 
 jobs:
   merge_main:
@@ -29,7 +29,11 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: terraform init -backend-config="bucket=$S3_BUCKET_NAME" -backend-config="key=$S3_KEY" -backend-config="region=$AWS_REGION"
+        run: terraform init -backend-config="bucket=$TF_VAR_S3_BUCKET_NAME" -backend-config="key=$TF_VAR_S3_KEY" -backend-config="region=$AWS_REGION"
+
+      - name: apagar depois
+        id: init
+        run: cat .terraform.lock.hcl
 
       - name: Terraform Apply
         id: apply

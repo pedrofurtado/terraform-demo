@@ -7,7 +7,7 @@ resource "aws_iam_role" "my-role" {
       {
         Action = "sts:AssumeRole"
         Effect = "Allow"
-        Sid    = "abc"
+        Sid    = "foobar"
         Principal = {
           Service = "ec2.amazonaws.com"
         }
@@ -22,7 +22,7 @@ resource "aws_iam_role" "my-role" {
       Version = "2012-10-17"
       Statement = [
         {
-          Action   = ["s3:*"]
+          Action   = ["ec2:*"]
           Effect   = "Allow"
           Resource = "*"
         },
@@ -30,8 +30,22 @@ resource "aws_iam_role" "my-role" {
     })
   }
 
+  inline_policy {
+    name = "another_inline_policy"
+
+    policy = jsonencode({
+      Version = "2012-10-17"
+      Statement = [
+        {
+          Action   = ["iam:*"]
+          Effect   = "Deny"
+          Resource = "*"
+        },
+      ]
+    })
+  }
+
   tags = {
-    tag-key = "tag-value",
-    foo = "bar2"
+    lorem = "ipsum"
   }
 }

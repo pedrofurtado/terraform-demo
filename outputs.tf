@@ -20,5 +20,5 @@ output "aws_iam_role_unique_id" {
 
 output "aws_availability_zones_available" {
   description = "List of AWS availability zones"
-  value = nonsensitive(data.aws_availability_zones.available.names)
+  value = data.aws_availability_zones.available.names
 }

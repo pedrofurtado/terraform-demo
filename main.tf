@@ -7,7 +7,7 @@ resource "aws_iam_role" "my-role" {
       {
         Action = "sts:AssumeRole"
         Effect = "Allow"
-        Sid    = ""
+        Sid    = "abc"
         Principal = {
           Service = "ec2.amazonaws.com"
         }
@@ -22,15 +22,16 @@ resource "aws_iam_role" "my-role" {
       Version = "2012-10-17"
       Statement = [
         {
-          Action   = ["ec2:Describe*"]
+          Action   = ["s3:*"]
           Effect   = "Allow"
-          Resource = "*"
+          Resource = "blablabla"
         },
       ]
     })
   }
 
   tags = {
-    tag-key = "tag-value"
+    tag-key = "tag-value",
+    foo = "bar"
   }
 }

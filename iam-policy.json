@@ -3,17 +3,12 @@
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": "s3:ListBucket",
-      "Resource": "arn:aws:s3:::my-bucket-external-state-of-terraform"
+      "Action": "s3:*",
+      "Resource": "*"
     },
     {
       "Effect": "Allow",
-      "Action": ["s3:GetObject", "s3:PutObject"],
-      "Resource": "arn:aws:s3:::my-bucket-external-state-of-terraform/path/to/my/state.tfstate"
-    },
-    {
-      "Effect": "Allow",
-      "Action": ["iam:AttachRolePolicy", "iam:CreateRole", "iam:TagRole", "iam:PutRolePolicy"],
+      "Action": ["iam:*"],
       "Resource": "*"
     }
   ]

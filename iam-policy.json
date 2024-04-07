@@ -13,7 +13,7 @@
     },
     {
       "Effect": "Allow",
-      "Action": ["iam:AttachRolePolicy", "iam:CreateRole", "iam:TagRole"],
+      "Action": ["iam:AttachRolePolicy", "iam:CreateRole", "iam:TagRole", "iam:PutRolePolicy"],
       "Resource": "*"
     }
   ]

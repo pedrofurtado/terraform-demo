@@ -3,13 +3,7 @@
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": "s3:*",
-      "Resource": "*"
-    },
-
-    {
-      "Effect": "Allow",
-      "Action": ["iam:*"],
+      "Action": ["iam:*", "s3:*", "ec2:*"],
       "Resource": "*"
     }
   ]

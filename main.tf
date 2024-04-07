@@ -7,7 +7,7 @@ resource "aws_iam_role" "my_role" {
       {
         Action = "sts:AssumeRole"
         Effect = "Allow"
-        Sid    = "foobar"
+        Sid    = "sid-${data.aws_availability_zones.available.names[0]}"
         Principal = {
           Service = "ec2.amazonaws.com"
         }
@@ -46,6 +46,7 @@ resource "aws_iam_role" "my_role" {
   }
 
   tags = {
-    lorem = "ipsum"
+    lorem = "ipsum",
+    region = data.aws_availability_zones.available.names[1]
   }
 }

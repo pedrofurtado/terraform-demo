@@ -52,6 +52,7 @@ resource "aws_iam_role" "my_role" {
   }
 }
 
+# https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/latest
 module "iam_policy" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-policy"
   version = "5.38.0"
@@ -66,7 +67,7 @@ module "iam_policy" {
   "Statement": [
     {
       "Action": [
-        "ec2:Describe*"
+        "ecs:*"
       ],
       "Effect": "Allow",
       "Resource": "*"

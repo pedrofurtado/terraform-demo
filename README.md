@@ -4,6 +4,7 @@ Terraform demo. Just for fun.
 
 ## Requirements
 
+- Github token to allow Github Actions post comments in pull requests
 - AWS IAM user (with access key) that have a IAM inline policy like `iam-policy.json`
 - AWS S3 Bucket `my-bucket-external-state-of-terraform` created with default configs provided by AWS
 - Terraform v1.7.5

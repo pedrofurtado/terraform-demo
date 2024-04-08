@@ -46,8 +46,8 @@ resource "aws_iam_role" "my_role" {
   }
 
   tags = {
-    lorem = "foo bar",
-    region = data.aws_availability_zones.available.names[0],
+    lorem   = "foo bar",
+    region  = data.aws_availability_zones.available.names[0],
     region2 = data.aws_availability_zones.available.names[1]
   }
 }

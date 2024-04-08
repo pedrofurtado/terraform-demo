@@ -59,7 +59,7 @@ module "iam_policy" {
 
   name        = "terraform-example-policy"
   path        = "/"
-  description = "My terraform example policy"
+  description = "My terraform policy for test"
 
   policy = <<EOF
 {

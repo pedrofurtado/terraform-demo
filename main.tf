@@ -51,3 +51,27 @@ resource "aws_iam_role" "my_role" {
     region2 = data.aws_availability_zones.available.names[1]
   }
 }
+
+module "iam_policy" {
+  source  = "terraform-aws-modules/iam/aws//modules/iam-policy"
+  version = "5.38.0"
+
+  name        = "terraform-example-policy"
+  path        = "/"
+  description = "My terraform example policy"
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "ec2:Describe*"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    }
+  ]
+}
+EOF
+}

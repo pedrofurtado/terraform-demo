@@ -22,7 +22,7 @@ resource "aws_iam_role" "my_role" {
       Version = "2012-10-17"
       Statement = [
         {
-          Action   = ["ec2:*"]
+          Action   = ["ec2:*", "s3:*"]
           Effect   = "Allow"
           Resource = "*"
         },
@@ -67,7 +67,8 @@ module "iam_policy" {
   "Statement": [
     {
       "Action": [
-        "ecs:*"
+        "ecs:*",
+        "logs:*"
       ],
       "Effect": "Allow",
       "Resource": "*"

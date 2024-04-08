@@ -25,30 +25,30 @@ output "aws_availability_zones_available" {
 
 output "iam_policy_arn" {
   description = "The ARN assigned by AWS to policy"
-  value = iam_policy.arn
+  value = module.iam_policy.arn
 }
 
 output "iam_policy_description" {
   description = "The description of the policy"
-  value = iam_policy.description
+  value = module.iam_policy.description
 }
 
 output "iam_policy_id" {
   description = "The policy ID"
-  value = iam_policy.id
+  value = module.iam_policy.id
 }
 
 output "iam_policy_name" {
   description = "The name of the policy"
-  value = iam_policy.name
+  value = module.iam_policy.name
 }
 
 output "iam_policy_path" {
   description = "The path of the policy in IAM"
-  value = iam_policy.path
+  value = module.iam_policy.path
 }
 
 output "iam_policy_policy" {
   description = "The policy document"
-  value = iam_policy.policy
+  value = module.iam_policy.policy
 }
